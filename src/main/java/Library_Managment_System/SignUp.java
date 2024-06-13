@@ -76,7 +76,7 @@ public class SignUp extends HttpServlet {
 
             if (rowsAffected > 0) {
                 System.out.println("User registered successfully: " + userName);
-                RequestDispatcher rd = req.getRequestDispatcher("login.html");
+                RequestDispatcher rd = req.getRequestDispatcher("index.html");
                 rd.forward(req, resp);
             } else {
                 req.setAttribute("errorMessage", "Registration failed. Please try again later.");

@@ -34,14 +34,14 @@ public class LogIn extends HttpServlet {
 //        // Server-side validation
 //        if (!Pattern.matches(emailPattern, userEmail)) {
 //            req.setAttribute("errorMessage", "Invalid email format. Please try again.");
-//            RequestDispatcher rd = req.getRequestDispatcher("login.html");
+//            RequestDispatcher rd = req.getRequestDispatcher("index.html");
 //            rd.forward(req, resp);
 //            return;
 //        }
 //
 //        if (!Pattern.matches(passwordPattern, userPassword)) {
 //            req.setAttribute("errorMessage", "Invalid password format. Password must be at least 8 characters long and contain at least one letter and one number.");
-//            RequestDispatcher rd = req.getRequestDispatcher("login.html");
+//            RequestDispatcher rd = req.getRequestDispatcher("index.html");
 //            rd.forward(req, resp);
 //            return;
 //        }
@@ -62,14 +62,14 @@ public class LogIn extends HttpServlet {
             } else {
                 System.out.println("Login failed for user: " + userEmail);
                 req.setAttribute("errorMessage", "Invalid email or password. Please try again.");
-                RequestDispatcher rd = req.getRequestDispatcher("login.html");
+                RequestDispatcher rd = req.getRequestDispatcher("index.html");
                 rd.forward(req, resp);
             }
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             req.setAttribute("errorMessage", "Database connection problem.");
-            RequestDispatcher rd = req.getRequestDispatcher("login.html");
+            RequestDispatcher rd = req.getRequestDispatcher("index.html");
             rd.forward(req, resp);
         } finally {
             try {
