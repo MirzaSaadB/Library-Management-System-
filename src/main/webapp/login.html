@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Log In</title>
+  <link rel="shortcut icon" href="./images/logo.jpeg" type="image/x-icon">
+  <style>
+    body {
+      background-image: url("./images/signUpBackround.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    form {
+      margin: auto;
+      display: block;
+      background-color: rgba(0, 0, 0, 0.516);
+      color: white;
+      width: 40%;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 10rem;
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+
+    input {
+      display: block;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      height: 2rem;
+      border: 1px solid black;
+      border-radius: 10px;
+      width: 40%;
+      margin-left: 10.5rem;
+    }
+
+    input:hover {
+      color: white;
+      background-color: black;
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+
+    a {
+      color: white;
+    }
+
+    button {
+      width: 20%;
+      height: 2rem;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    button:hover {
+      color: white;
+      background-color: black;
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form name="loginForm" action="login" method="post" onsubmit="returnvalidateLoginForm()">
+    <h1>Log In</h1>
+    <label for="uemail">Enter Your Email:</label>
+    <input type="email" name="userEmail" id="uemail" required="required">
+    <br>
+    <label for="upassword">Enter Your Password:</label>
+    <input type="password" name="userPassword" id="upassword" required="required">
+    <br>
+    <h4>Don't have an account? <a href="signup.html">Sign Up</a></h4>
+    <button type="submit">Log In</button>
+  </form>
+
+  <script>
+    function validateLoginForm() {
+      var email = document.forms["loginForm"]["userEmail"].value;
+      var password = document.forms["loginForm"]["userPassword"].value;
+
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long and contain at least one letter and one number.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>

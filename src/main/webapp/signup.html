@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="shortcut icon" href="./images/logo.jpeg" type="image/x-icon">
+  <style>
+    body {
+      background-image: url("./images/signUpBackround.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    form {
+      margin: auto;
+      display: block;
+      background-color: rgba(0, 0, 0, 0.516);
+      color: white;
+      width: 40%;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 10rem;
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+
+    input {
+      display: block;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+      height: 2rem;
+      border: 1px solid black;
+      border-radius: 10px;
+      width: 40%;
+      margin-left: 10.5rem;
+    }
+
+    input:hover {
+      color: white;
+      background-color: black;
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+
+    a {
+      color: white;
+    }
+
+    button {
+      width: 20%;
+      height: 2rem;
+      border: 1px solid black;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    button:hover {
+      color: white;
+      background-color: black;
+      border: 1px solid white;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <form name="signupForm" action="signUp" method="post" onsubmit="returnvalidateForm()">
+    <h1>SignUp</h1>
+    <label for="uname">Enter Your Name:</label>
+    <input type="text" name="userName" id="uname" required="required">
+    <br>
+    <label for="uemail">Enter Your Email:</label>
+    <input type="email" name="userEmail" id="uemail" required="required">
+    <br>
+    <label for="ucontact">Enter Your Contact Number:</label>
+    <input type="tel" name="userContact" id="ucontact" required="required">
+    <br>
+    <label for="upassword">Enter Your Password:</label>
+    <input type="password" name="userPassword" id="upassword" required="required">
+    <br>
+    <h4>If You Already Have Account? <a href="login.html">LogIn</a></h4>
+    <button type="submit">SignUp</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      var name = document.forms["signupForm"]["userName"].value;
+      var email = document.forms["signupForm"]["userEmail"].value;
+      var contact = document.forms["signupForm"]["userContact"].value;
+      var password = document.forms["signupForm"]["userPassword"].value;
+
+      var namePattern = /^[A-Za-z\s]+$/;
+      var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      var contactPattern = /^\d{10}$/;
+      var passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+      if (!namePattern.test(name)) {
+        alert("Please enter a valid name.");
+        return false;
+      }
+
+      if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+      }
+
+      if (!contactPattern.test(contact)) {
+        alert("Please enter a valid 10-digit contact number.");
+        return false;
+      }
+
+      if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long and contain at least one letter and one number.");
+        return false;
+      }
+
+      return true;
+    }
+  </script>
+</body>
+</html>
